@@ -38,7 +38,8 @@ class Questions:
                     answer = row[2]
                     option1 = row[3]
                     option2 = row[4]
-                    currentQuestion = [statement, answer ,option1 , option2]
+                    option3 = row[5]
+                    currentQuestion = [statement, answer ,option1 , option2, option3]
                     if difficulty in self.bankOfQuestions:
                         self.bankOfQuestions[difficulty].append(currentQuestion)
                     else:
