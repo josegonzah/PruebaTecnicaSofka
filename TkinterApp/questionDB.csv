@@ -1,0 +1,26 @@
+level, statement, correct, option1, option2
+1,The sun is,hot,cold,small
+1,Colombia is in,South America,Africa,Canada
+1,The human being lives on,earth,mercury,mars
+1,This program is being ran on,a PC,a potato,a printer
+1,Water is,wet,dry,non-existant
+2,Which of the following is more dense,water,ice,air
+2,Which continent is larger,Asia,Africa,Europe
+2,The capital of USA,Washington DC,New York,Los Angeles
+2,Most populated city in Colombia,Bogota,Medellin,Cali
+2,Recomended hours of sleep,8,6,9
+3,Largest Planet on the solar system,Jupiter,Uranus,Mercury
+3,Largest Animal on earth,blue whale,megalodon,kraken
+3,Heaviest element in the periodic table,Oganesson,Radon,Polonium
+3,Number of electrons on a Higrogen Atom,1,2,3
+3,Which element is the better conductor,Silver,Copper,Gold
+4,Fastest type of transistor,BJT,MOSFET,BOBAFET
+4,Most used OS in the world,Windows,Linux,MacOS
+4,Which programming language is only compatible with Apple OS,Swift,GO,Ruby on Rails
+4,Which of the following languages is not object-oriented,Haskell,C++,Java
+4,Which of the following ports is used for SSH,22,88,69
+5,Which of the following is a routing  Protocol,EIGRP,IPV6,Spaning Tree
+5,Which of the following is NOT a media access control method,CSMA/AD,CSMA/CD,ALOHA
+5,What is faster than light,Expansion of space-time,photons,nothing
+5,What training methodology did Dorian Yates (famous bodybuilder) used,HIT,LISS,Bro split
+5,Hottest temperature ever recorded on earth,2 billion Kelvin,2.3 Billion Kelvin,1.6 billion Kelvin
