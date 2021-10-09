@@ -2,7 +2,14 @@ from tkinter import *
 from tkinter import *
 from tkinter import scrolledtext
 from tkinter import ttk
+from player import Player
+from game import Game
+from Questions import Questions
 
+
+questions = Questions()
+player = Player()
+startGame = False
 dimension = "1000x350"
 
 def callGameWindow1():
@@ -12,6 +19,36 @@ def callGameWindow1():
 def selectTypeofPlayer():
     typeOfPlayer = typeOfPlayerVar.get()
 
+def validateUserName():
+    playerStatus = typeOfPlayerVar.get()
+    playerName = inputUserName.get()
+    if(playerStatus == 1):
+        isNew = player.setNewPlayer(playerName)
+        if(isNew):
+            player.saveNewPlayer(playerName)
+            callGameWindow1()
+        else:
+            print("Error userNameNew")
+            typeOfError = 1
+            displayErrorMessage(typeOfError)
+    else:
+        isOld = player.loadOldPlayer(playerName)
+        if(isOld):
+            callGameWindow1()
+        else:
+            print("Error userName Old")
+            typeOfError = 2
+            displayErrorMessage(typeOfError)
+    
+def displayErrorMessage(typeOfError):
+    error = Toplevel(inicio)
+    error.configure(background='black')
+    error.geometry("750x250")
+    error.title("Error Message")
+    if(typeOfError == 1):
+        Label(error, text= "Your username is already in the database \n check it (case sensitive)", font=('Windows Sans Serif', 20),bg='black', fg="#F80332" ).place(x=150,y=80)
+    else:
+        Label(error, text= "Your username is not in the database \n check it (case sensitive)", font=('Windows Sans Serif', 20),bg='black', fg="#F80332" ).place(x=150,y=80)
 
 inicio = Tk()
 inicio.title("Welcome to 25 Questions")
@@ -29,14 +66,16 @@ gameOptionNew = Radiobutton(inicio, text="New Player", variable=typeOfPlayerVar,
 gameOptionOld = Radiobutton(inicio, text="Saved Game", variable=typeOfPlayerVar, value=2,command=selectTypeofPlayer, bg='black', fg='#1DB954', font=("Microsoft Sans Serif", 10)).grid(column=2, row=4)
 putYourUserName = Label(inicio,text="Please give us your name", font=("Microsoft Sans Serif", 25),bg='black', fg="white")
 putYourUserName.grid(column=2, row=5, padx=10, pady=10)
-inputUserName = Entry(inicio, bg='#1DB954', fg='white', font=("Microsoft Sans Serif", 15), ).grid(column=2, row=6, padx=10, pady=10)
-btn_0 = Button(inicio, text="Begin Game", command=callGameWindow1,width=10,height=1, bg='#F80332', fg='white', font=("Microsoft Sans Serif", 15)) #  width, height en pixeles
+inputUserName = Entry(inicio, bg='#1DB954', fg='white', font=("Microsoft Sans Serif", 15), )
+inputUserName.grid(column=2, row=6, padx=10, pady=10)
+btn_0 = Button(inicio, text="Begin Game", command=validateUserName,width=10,height=1, bg='#F80332', fg='white', font=("Microsoft Sans Serif", 15)) #  width, height en pixeles
 btn_0.grid(row=7, column=2, padx=20, pady=20) # ,sticky="S"
 # inicio.attributes('-fullscreen', True)
 
 def win_1():
 
-        
+    newGame = Game(player, questions)
+    newGame.playGame()
     def terminar():
     	window.destroy()
         
