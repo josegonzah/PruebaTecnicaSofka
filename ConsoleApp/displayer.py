@@ -1,7 +1,8 @@
 from random import shuffle
 
 class Displayer:
-
+    #Object that displays the information and menus
+    
     def displayQuestion(Question):
         print(str(Question[0])+"\n")
         options = Question[1:]
