@@ -78,9 +78,33 @@ btn_0.grid(row=7, column=2, padx=20, pady=20) # ,sticky="S"
 
 def gameWindow():
 
+    def updateRound():
+        newGame.updateRound()
+        currentRound = newGame.getCurrentRound()
+        newGame.updateScore(currentRound)
+        roundTitle.config(text="Round: " + str(currentRound))
+
+    def updateQuestion():
+        newGame.setNewQuestion()
+        currentQuestion = newGame.getCurrentQuestion()
+        questionStatement = currentQuestion[0]
+        options = currentQuestion[1:]
+        shuffle(options)
+        questionStamentLabel.config(text=questionStatement)
+        realAnswer = newGame.MapQuestions(currentQuestion[1:], options)
+        option1.config(text=options[0])
+        option2.config(text=options[1])
+        option3.config(text=options[2])
+        option4.config(text=options[3])
+        # print(realAnswer)
+        
+
+
     def validateUserAns():
         if(userAnswer.get()== realAnswer):
             print("es correcto")
+            updateRound()
+            updateQuestion()
         else:
             print("equivocado wey")
     
@@ -90,6 +114,7 @@ def gameWindow():
     currentRound = newGame.getCurrentRound()
     currentQuestion = newGame.getCurrentQuestion()
     
+
     gameWindow = Tk()
     gameWindow.title("Round: "+str(currentRound))
     gameWindow.geometry("1000x550")
@@ -109,11 +134,14 @@ def gameWindow():
     questionStamentLabel.grid(column=2, row=1, padx=10, pady=10)
     userAnswer = IntVar()
     realAnswer = newGame.MapQuestions(currentQuestion[1:], options)
-    option = Radiobutton(gameWindow, text=options[0], variable=userAnswer, value=0).grid(column=2, row=2)
-    option = Radiobutton(gameWindow, text=options[1], variable=userAnswer, value=1).grid(column=2, row=3)
-    option = Radiobutton(gameWindow, text=options[2], variable=userAnswer, value=2).grid(column=2, row=4)
-    option = Radiobutton(gameWindow, text=options[3], variable=userAnswer, value=3).grid(column=2, row=5)
-
+    option1 = Radiobutton(gameWindow, text=options[0], variable=userAnswer, value=0)
+    option1.grid(column=2, row=2)
+    option2 = Radiobutton(gameWindow, text=options[1], variable=userAnswer, value=1)
+    option2.grid(column=2, row=3)
+    option3 = Radiobutton(gameWindow, text=options[2], variable=userAnswer, value=2)
+    option3.grid(column=2, row=4)
+    option4 = Radiobutton(gameWindow, text=options[3], variable=userAnswer, value=3)
+    option4.grid(column=2, row=5)
     validateAns = Button(gameWindow, text="Submit", command=validateUserAns,width=10,height=1, bg='#F80332', fg='white', font=("Microsoft Sans Serif", 15))
     validateAns.grid(row=7, column=2, padx=20, pady=20)
 

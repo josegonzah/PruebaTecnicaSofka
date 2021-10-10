@@ -28,11 +28,13 @@ class Game:
             #     self.savePlayerScore(self.player)
             #     continue
         # self.displayer.congratulations()
-            
+    
+    def setNewQuestion(self):
+        self.newQuestion = self.questions.getRandomQuestion(self.round)
+
     def MapQuestions(self, question, shuffledQuestion):
         for i in range(0,len(shuffledQuestion)):
             if(shuffledQuestion[i]==question[0]):
-                print(i)
                 return i
 
     def checkQuestion(self, question, userInput):
@@ -47,11 +49,12 @@ class Game:
             self.score += 10000
         else:
             self.score += round*100
-            print(self.score, self.round, self.userName)
+        self.savePlayerScore(self.player)
     
     def resetScore(self):
         self.score = 0
         self.round = 1
+        self.savePlayerScore(self.player)
         
     def savePlayerScore(self, player):
         player.savePlayerInfo(self.userName, self.score, self.round)
@@ -61,3 +64,7 @@ class Game:
 
     def getCurrentQuestion(self):
         return self.newQuestion
+
+    def updateRound(self):
+        self.round += 1
+
