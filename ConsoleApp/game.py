@@ -4,6 +4,9 @@ from displayer import Displayer
 
 class Game:
     def __init__(self, Player, Questions):
+        #Object that contains and controls the objects player and questions, it has the relevant
+        #information to comunicate with the front end and to allow easy use
+
         self.player = Player
         self.round = Player.round
         self.score = Player.score
@@ -12,6 +15,8 @@ class Game:
         self.displayer = Displayer
     
     def playGame(self):
+        #Initiates the game and controls the flow the game, telling the game which round should be played
+
         while(self.round <= 5):
             newQuestion = self.questions.getRandomQuestion(self.round)
             userInput = self.displayer.displayQuestion(newQuestion)
@@ -30,6 +35,8 @@ class Game:
         self.displayer.congratulations()
             
     def checkQuestion(self, question, userInput):
+        #Checks if question is answered correctly
+
         if(question[1] == userInput):
             self.round += 1
             return True
@@ -37,6 +44,8 @@ class Game:
             return False
 
     def updateScore(self, round):
+        #Updates player score
+
         if(round == 5):
             self.score += 10000
         else:
@@ -44,10 +53,14 @@ class Game:
             print(self.score, self.round, self.userName)
     
     def resetScore(self):
+        #Resets player score to the first level
+
         self.score = 0
         self.round = 1
         
     def savePlayerScore(self, player):
+        #Conection to player object, updates the info on that object
+
         player.savePlayerInfo(self.userName, self.score, self.round)
 
     
