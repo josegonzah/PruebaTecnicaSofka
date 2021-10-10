@@ -29,7 +29,7 @@ class Game:
         #Updates Score of the current game and then updates the round
         #and updates the info on the player object
 
-        if(self.round == 6):
+        if(self.round == 5):
             self.score += 10000
         else:
             self.score += self.round*100
