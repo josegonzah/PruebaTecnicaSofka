@@ -21,5 +21,6 @@ you have to restart the game<br></p>
 in the console app directory.
 To run the tkinter app you also need the tkinter library, to install it you can use pip like this:
 python python -m pip install --upgrade pip python -m pip install Pillow python -m pip install tk. To install python 3 you can install it directly from the python.org website.
-To run the desktop app just type python main.py inside the directory TKinterApp. Suggestion(run it in a virtualenv)
+To run the desktop app just type python main.py inside the directory TKinterApp. Suggestions(run it in a virtualenv), to modify the csv files keep in mind that you have to leave
+a blank line at the end so the program can run properly, or use the built-in functions in the app to modify them
 
