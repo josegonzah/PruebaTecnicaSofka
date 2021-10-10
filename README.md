@@ -1,6 +1,6 @@
 # PruebaTecnicaSofka 25 Questions
-##By Jose David Gonzalez Henao
-##Instructions:
+<h2>By Jose David Gonzalez Henao</h2>
+<h3>Instructions:</h3>
 <p>25 Questions is a game that will test your knowledge in differnt areas. The game has two modes of play:<br>
 Console and Tkinter app, in the console app you will have to run it and it will request your mode of play. If you <br>
 already have a created user you should provide the exact name that you saved your previous game otherwise the game will <br>
@@ -16,7 +16,7 @@ window and you loose all the progress. The game finishes when you answer 5 quest
 if you get an answer right so if you close the window it will pick up right where you left. Meanwhile if you fail all your score is lost and<br>
 you have to restart the game<br></p>
 
-##Instructions to run the game
+<h3>Instructions to run the game</h3>
 <p>The game was designe in python3 so to run the console app you just need to open the file main.py using python like this: python main.py<br>
 in the console app directory.<br>
 To run the tkinter app you also need the tkinter library, to install it you can use pip like this:<br>
